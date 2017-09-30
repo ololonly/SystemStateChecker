@@ -1,5 +1,0 @@
-C:\Users\ololonly\Desktop\NSpeedTest-master\NSpeedTest\bin\Debug\NSpeedTest.dll
-C:\Users\ololonly\Desktop\NSpeedTest-master\NSpeedTest\bin\Debug\NSpeedTest.pdb
-C:\Users\ololonly\Desktop\NSpeedTest-master\NSpeedTest\obj\Debug\NSpeedTest.csproj.CoreCompileInputs.cache
-C:\Users\ololonly\Desktop\NSpeedTest-master\NSpeedTest\obj\Debug\NSpeedTest.dll
-C:\Users\ololonly\Desktop\NSpeedTest-master\NSpeedTest\obj\Debug\NSpeedTest.pdb
