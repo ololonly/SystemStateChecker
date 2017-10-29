@@ -8,9 +8,6 @@ using NSpeedTest.Models;
 
 namespace SystemStateChecker
 {
-    /// <summary>
-    /// Interaction logic for SpeedTest.xaml
-    /// </summary>
     public partial class SpeedTest : Window
     {
         public SpeedTest()
@@ -36,7 +33,6 @@ namespace SystemStateChecker
             progress.Report("Получение настроек speedtest.net и списка серверов...");
             client = new SpeedTestClient();
             settings = client.GetSettings();
-
             var servers = SelectServers(progress);
             var bestServer = SelectBestServer(servers,progress);
             progress.Report("\nПроверка скорости...");
@@ -79,8 +75,6 @@ namespace SystemStateChecker
             progress.Report(speed > 1024
                 ? $"\n{type} скорость: {Math.Round(speed / 1024, 2)} Мб/с"
                 : $"\n{type} скорость: {Math.Round(speed, 2)} Кб/с");
-        }
-
-        
+        }       
     }
 }

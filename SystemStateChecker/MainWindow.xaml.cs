@@ -35,6 +35,7 @@ namespace SystemStateChecker
             };
             securityTestButton.Click += async (s, e) =>{
                 var st = new SecurityTest();
+                securityDataTextBox.Text = "Дождитесь окончания проверки.";
                 securityDataTextBox.Text= await st.ResultAsync();
                 securityDataTextBox.Background = st.State ? Brushes.LimeGreen : Brushes.Red;
             };

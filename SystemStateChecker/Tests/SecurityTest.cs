@@ -20,7 +20,7 @@ namespace SystemStateChecker.Tests
                     sw.Write(@"X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*");
                 }
             }
-            Thread.Sleep(1000);
+            Thread.Sleep(10000);
             return !File.Exists("test.txt") ? "Ваш антивирус успешно справился с угрозой" : "Ваш антивирус не работает";
         }
 
