@@ -34,5 +34,6 @@
         <Button x:Name="securityTestButton" Content="Проверка безопасности" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="3" />
         <TextBox x:Name="securityDataTextBox" HorizontalAlignment="Stretch" Margin="10" TextWrapping="Wrap" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="3" IsReadOnlyCaretVisible="True"/>
         <Button x:Name="logCreationButton" Content="Создать отчет" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="4" />
+        <Button x:Name="performanceTestsButton" Content="Проверка производительности" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="200" Height="40"/>
     </Grid>
 </Window>

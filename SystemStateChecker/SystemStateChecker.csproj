@@ -50,6 +50,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Performance.xaml.cs">
+      <DependentUpon>Performance.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tests\AntivirusTest.cs" />
     <Compile Include="Tests\ConnectionTest.cs" />
     <Compile Include="SpeedTest.xaml.cs">
@@ -70,6 +73,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Performance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SpeedTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +112,10 @@
     <ProjectReference Include="..\NSpeedTest\NSpeedTest.csproj">
       <Project>{b1886b34-0de4-4c16-8073-cc12e7571d58}</Project>
       <Name>NSpeedTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PerformanceTests\PerformanceTests.csproj">
+      <Project>{d079f707-45e4-4342-b7a5-76900ac4d9c4}</Project>
+      <Name>PerformanceTests</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

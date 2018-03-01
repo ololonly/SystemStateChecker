@@ -54,6 +54,11 @@ namespace SystemStateChecker
                     }                   
                 }
             };
+            performanceTestsButton.Click += (s, e) =>
+            {
+                var performanceWindow = new Performance();
+                performanceWindow.Show();
+            };
             IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
             {
                 if (depObj != null)
