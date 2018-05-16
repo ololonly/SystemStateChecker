@@ -89,6 +89,7 @@ namespace SystemStateChecker
         {
             {
                 portDataTextBox.Background = Brushes.White;
+
                 portDataTextBox.Text = string.Empty;
                 var pt = new PortTest((bool)portCheckBox.IsChecked);
                 var progress = new Progress<string>(s => portDataTextBox.Text += s);
