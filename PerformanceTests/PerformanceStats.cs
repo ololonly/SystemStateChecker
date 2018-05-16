@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PerformanceTests
 {
-    static class PerformanceStats
+    public static class PerformanceStats
     {
         private static PerformanceCounter cpuCounter;
         public static PerformanceCounter CpuCounter => cpuCounter;
@@ -15,6 +15,7 @@ namespace PerformanceTests
         static PerformanceStats()
         {
             cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            
         }
 
     }

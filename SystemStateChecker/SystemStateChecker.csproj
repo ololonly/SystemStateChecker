@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml">
@@ -60,6 +61,7 @@
     </Compile>
     <Compile Include="Tests\FirewallTest.cs" />
     <Compile Include="Interfaces\ITest.cs" />
+    <Compile Include="Tests\PortTest.cs" />
     <Compile Include="Tests\SecurityTest.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

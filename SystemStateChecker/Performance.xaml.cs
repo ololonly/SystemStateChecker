@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Management;
 using System.Timers;
 using System.Windows;
 using System.Windows.Media.Animation;
@@ -28,6 +30,11 @@ namespace SystemStateChecker
                 if (!copyTest.IsNull)
                 {
                     var at = new SystemStateChecker.Tests.AntivirusTest();
+                    do
+                    {
+                        if (MessageBox.Show("Выключите антивирус для проведения проверки", "Внимание!", MessageBoxButton.OKCancel,
+                                MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None) == MessageBoxResult.Cancel) return;
+                    } while (!at.State);
                     copyTest.Start();
                     copyTest.Start();
                     var withAV = copyTest.Result;
@@ -39,10 +46,35 @@ namespace SystemStateChecker
                     copyTest.Start();
                     copyTest.Start();
                     var withoutAV = copyTest.Result;
-                    TestsResult.CopyTestList.Add(withAV.TotalMilliseconds/withoutAV.TotalMilliseconds, "Intel Core i7 7700k");
+                    TestsResult.CopyTestList.Add(withAV.TotalMilliseconds/withoutAV.TotalMilliseconds, $"{GetHardwareInfo("Win32_Processor", "Name")[0]}");
                     CopyStatsListBox.Items.Refresh();
                 }
             };
+            this.Closed += (s, e) =>
+            {
+                if (copyTest!=null) copyTest.Dispose();
+            };
+        }
+
+        private static List<string> GetHardwareInfo(string WIN32_Class, string ClassItemField)
+        {
+            List<string> result = new List<string>();
+
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM " + WIN32_Class);
+
+            try
+            {
+                foreach (ManagementObject obj in searcher.Get())
+                {
+                    result.Add(obj[ClassItemField].ToString().Trim());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return result;
         }
     }
 }

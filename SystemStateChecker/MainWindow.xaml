@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SystemStateChecker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="453" Width="610">
+        Title="MainWindow" Height="504" Width="610">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="64*"/>
             <RowDefinition Height="64*"/>
             <RowDefinition Height="64*"/>
             <RowDefinition Height="64*"/>
+            <RowDefinition Height="90*"/>
             <RowDefinition Height="64*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -27,13 +28,25 @@
             <TextBox x:Name="connectionDataTextBox" HorizontalAlignment="Stretch" Margin="10" TextWrapping="Wrap" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" IsReadOnlyCaretVisible="True" Background="{x:Null}"/>
             <Button x:Name="speedTestButton" Content="SpeedTest" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Width="auto" Grid.Column="1" IsEnabled="False" />
         </Grid>
+
         <Button x:Name="firewallTestButton" Content="Проверка фаервола" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="1" />
         <TextBox x:Name="firewallDataTextBox" HorizontalAlignment="Stretch" Margin="10" TextWrapping="Wrap" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1" IsReadOnlyCaretVisible="True"/>
+
         <Button x:Name="antivirusTestButton" Content="Проверка антивируса" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="2" />
         <TextBox x:Name="antivirusDataTextBox" HorizontalAlignment="Stretch" Margin="10" TextWrapping="Wrap" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="2" IsReadOnlyCaretVisible="True"/>
+
         <Button x:Name="securityTestButton" Content="Проверка безопасности" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="3" />
         <TextBox x:Name="securityDataTextBox" HorizontalAlignment="Stretch" Margin="10" TextWrapping="Wrap" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="3" IsReadOnlyCaretVisible="True"/>
-        <Button x:Name="logCreationButton" Content="Создать отчет" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="4" />
-        <Button x:Name="performanceTestsButton" Content="Проверка производительности" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="200" Height="40"/>
+
+        <Button x:Name="portTestButton" Content="Проверка портов" HorizontalAlignment="Stretch" Margin="10,10,10,30" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="4" />
+        <CheckBox x:Name="portCheckBox" Content="Внешний IP" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Bottom" Width="Auto" Height="Auto" Grid.Row="4"> </CheckBox>
+        <StackPanel Grid.Row="4" Grid.Column="1">
+            <TextBox x:Name="portDataTextBox" HorizontalAlignment="Stretch" Margin="10" Height="60" TextWrapping="Wrap" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" IsReadOnlyCaretVisible="True"/>
+            <ProgressBar Name="portProgressBar" HorizontalAlignment="Stretch" Margin="10,0,10,5" Height="15" Grid.Row="4" Grid.RowSpan="2" VerticalAlignment="Top" Width="auto"/>
+        </StackPanel>
+
+        <Button x:Name="logCreationButton" Content="Создать отчет" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="5" />
+        <Button x:Name="performanceTestsButton" Content="Проверка производительности" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="200" Height="40"/>
+
     </Grid>
 </Window>

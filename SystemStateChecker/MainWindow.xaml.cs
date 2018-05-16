@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -33,6 +35,9 @@ namespace SystemStateChecker
                 antivirusDataTextBox.Text = at.Result();
                 antivirusDataTextBox.Background = at.State ? Brushes.LimeGreen : Brushes.Red;
             };
+            portTestButton.Click += PortTestButton_Click;
+            
+
             securityTestButton.Click += async (s, e) =>{
                 var st = new SecurityTest();
                 securityDataTextBox.Text = "Дождитесь окончания проверки.";
@@ -78,6 +83,27 @@ namespace SystemStateChecker
                     }
                 }
             }
+        }
+
+        private async void PortTestButton_Click(object sender, RoutedEventArgs e)
+        {
+            {
+                portDataTextBox.Background = Brushes.White;
+                portDataTextBox.Text = string.Empty;
+                var pt = new PortTest((bool)portCheckBox.IsChecked);
+                var progress = new Progress<string>(s => portDataTextBox.Text += s);
+                portProgressBar.Minimum = 0;
+                portProgressBar.Maximum = pt.TestsCount;
+                portProgressBar.Value = 0;
+                pt.PortChecked += (s, args) =>
+                {
+                    Dispatcher.BeginInvoke(new Action(delegate { portProgressBar.Value++; }));
+
+                };
+                await Task.Factory.StartNew<string>(() => pt.Check(progress), TaskCreationOptions.LongRunning);
+                portDataTextBox.Background = pt.State ? Brushes.LimeGreen : Brushes.Red;
+                portDataTextBox.Text += $"\n{pt.Result()}";
+            };
         }
     }
 }

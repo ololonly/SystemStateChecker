@@ -59,7 +59,7 @@ namespace PerformanceTests.Tests
 
         public void Dispose()
         {
-            File.Delete(path);
+            if (File.Exists(path)) File.Delete(path);
         }
 
         public bool IsNull => !File.Exists(path);
