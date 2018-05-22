@@ -45,7 +45,7 @@ namespace SystemStateChecker.Tests
             {
                result = $"Исключение { e.Message} ошибка {e.StackTrace}";
             }
-            return result;
+            return result==string.Empty?"Фаервол не установлен":result;
         }
     }
 }
