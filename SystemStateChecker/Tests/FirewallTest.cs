@@ -18,7 +18,7 @@ namespace SystemStateChecker.Tests
                     : "SecurityCenter";
                 
                 ManagementScope Scope;
-                Scope = new ManagementScope(String.Format($"\\\\{"localhost"}\\root\\{WMINameSpace}"), null);
+                Scope = new ManagementScope(String.Format($"\\\\localhost\\root\\{WMINameSpace}"), null);
 
                 Scope.Connect();
                 ObjectQuery Query = new ObjectQuery("SELECT * FROM FirewallProduct");

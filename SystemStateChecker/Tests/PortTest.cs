@@ -1,20 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Services.Description;
-using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace SystemStateChecker.Tests
 {
 
 
-    public class Port
+    public struct Port
     {
         public int Number { get; }
         public string Description { get; }
@@ -49,7 +42,7 @@ namespace SystemStateChecker.Tests
         
         public int TestsCount => ports.Count - 1;
 
-        private List<Port> ports = new List<Port>()
+        private readonly List<Port> ports = new List<Port>()
         {
             new Port(20,"FTP"),
             new Port(21,"FTP"),
@@ -94,8 +87,7 @@ namespace SystemStateChecker.Tests
             new Port(20000,"DNP")
         };
         private List<Port> openedPorts = new List<Port>();
-
-        private string currIp;
+        private readonly string currIp;
 
         public PortTest(bool ipType)
         {
@@ -104,7 +96,7 @@ namespace SystemStateChecker.Tests
 
         private string ip(bool type)
         {
-            return type? new System.Net.WebClient().DownloadString("https://api.ipify.org"):Dns.GetHostByName(Dns.GetHostName()).AddressList[0].ToString();
+            return type? new WebClient().DownloadString("https://api.ipify.org"):Dns.GetHostByName(Dns.GetHostName()).AddressList[0].ToString();
         }
 
         public string Check(IProgress<string> progress)

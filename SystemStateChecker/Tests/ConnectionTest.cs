@@ -4,7 +4,7 @@ namespace SystemStateChecker.Tests
 {
     public class ConnectionTest : ITest
     {
-        private string _testUrl;
+        private readonly string _testUrl;
         
         public ConnectionTest(string testUrl)
         {
@@ -12,8 +12,7 @@ namespace SystemStateChecker.Tests
         }
 
         public bool State { get; private set; }
-
-
+        
         public string Result()
         {
             IPStatus state;

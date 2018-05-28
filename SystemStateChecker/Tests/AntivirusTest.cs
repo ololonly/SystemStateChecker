@@ -14,7 +14,6 @@ namespace SystemStateChecker.Tests
         private ManagementObjectSearcher _managementObjectSearcher;
         private ManagementObjectCollection _managementObjectCollection;
 
-
         public bool State
         {
             get

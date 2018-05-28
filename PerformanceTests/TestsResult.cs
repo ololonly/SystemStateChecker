@@ -15,5 +15,13 @@ namespace PerformanceTests
             get => copyTestList;
             set => copyTestList = value;
         }
+
+        private static SortedList<double, string> openDocTestList = new SortedList<double, string>();
+
+        public static SortedList<double, string> OpenDocTestList
+        {
+            get => openDocTestList;
+            set => openDocTestList = value;
+        }
     }
 }

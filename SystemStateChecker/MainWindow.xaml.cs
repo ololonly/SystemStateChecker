@@ -16,7 +16,7 @@ namespace SystemStateChecker
         {
             InitializeComponent();
             connectionTestButton.Click += (s, e) => {
-                var ct = new ConnectionTest("google.com");
+                var ct = new ConnectionTest("8.8.8.8");
                 connectionDataTextBox.Text = ct.Result();
                 connectionDataTextBox.Background = ct.State
                     ? Brushes.LimeGreen

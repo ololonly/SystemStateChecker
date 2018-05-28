@@ -6,6 +6,8 @@ namespace SystemStateChecker.Tests
 {
     public class SecurityTest : ITest
     {
+        private const string _eicar = @"X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*";
+
         public bool State
         {
             get => !File.Exists("test.txt");
@@ -17,7 +19,7 @@ namespace SystemStateChecker.Tests
             {
                 using (var sw = new StreamWriter(fs))
                 {
-                    sw.Write(@"X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*");
+                    sw.Write(_eicar);
                 }
             }
             Thread.Sleep(10000);
