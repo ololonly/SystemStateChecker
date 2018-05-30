@@ -40,6 +40,22 @@ namespace SystemStateChecker.Tests
                 new ManagementObjectSearcher(_managementScope, _objectQuery);
         }
 
+        public string CurrentAv()
+        {
+            string result = string.Empty;
+            _managementObjectCollection = _managementObjectSearcher.Get();
+            if (_managementObjectCollection.Count > 0)
+            {
+                foreach (ManagementObject item in _managementObjectCollection)
+                {
+                    var state = int.Parse(item["productState"].ToString());
+                    if (state.ToString("X").Substring(1, 1).Equals("1")) return $"{item["displayName"]} ";
+                }
+            }
+            result = result.Remove(result.Length - 1, 1);
+            return result;
+        }
+
         public string Result()
         {
             string result = string.Empty;

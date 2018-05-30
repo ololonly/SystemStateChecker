@@ -4,7 +4,7 @@ using System.Management;
 
 namespace SystemStateChecker.Tests
 {
-    public class AntivirusTest : ITest
+    public class AntivirusTest
     {
         private bool _state;
         private List<bool> states;
@@ -38,6 +38,21 @@ namespace SystemStateChecker.Tests
             _objectQuery = new ObjectQuery("SELECT * FROM AntivirusProduct");
             _managementObjectSearcher =
                 new ManagementObjectSearcher(_managementScope, _objectQuery);
+        }
+
+        public string CurrentAv()
+        {
+            string result = string.Empty;
+            _managementObjectCollection = _managementObjectSearcher.Get();
+            if (_managementObjectCollection.Count > 0)
+            {
+                foreach (ManagementObject item in _managementObjectCollection)
+                {
+                    var state = int.Parse(item["productState"].ToString());
+                    if (state.ToString("X").Substring(1, 1).Equals("1")) return $"{item["displayName"]} ";
+                }
+            }
+            return "Антивирус отключен";
         }
 
         public string Result()
