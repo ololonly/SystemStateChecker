@@ -48,6 +48,24 @@
                         </DockPanel>
                     </Grid>
                 </TabItem>
+                <TabItem Header="Скачивание файлов">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFE5E5E5" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="385*"/>
+                        <ColumnDefinition Width="111*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="209*"/>
+                        <RowDefinition Height="82*"/>
+                    </Grid.RowDefinitions>
+                    <ListBox Name="DownloadStatsListBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding}"/>
+                    <DockPanel Grid.Row="1"  >
+
+                        <Button x:Name="downloadTestButton" Content="Проверить" HorizontalAlignment="Center" Width="75" VerticalAlignment="Center"/>
+                        
+                    </DockPanel>
+                </Grid>
+                </TabItem>
             </TabControl>
         </DockPanel>
     </Grid>

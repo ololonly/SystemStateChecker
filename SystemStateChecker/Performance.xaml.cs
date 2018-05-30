@@ -32,11 +32,11 @@ namespace SystemStateChecker
                 if (!copyTest.IsNull)
                 {
                     
-                    do
-                    {
-                        if (MessageBox.Show("Выключите антивирус для проведения проверки", "Внимание!", MessageBoxButton.OKCancel,
+                    while (!at.State)
+                        {
+                        if (MessageBox.Show("Включите антивирус для проведения проверки", "Внимание!", MessageBoxButton.OKCancel,
                                 MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None) == MessageBoxResult.Cancel) return;
-                    } while (!at.State);
+                    }
                     copyTest.Start();
                     copyTest.Start();
                     var withAV = copyTest.Result;
