@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Office.Interop.Word;
 
 namespace PerformanceTests.Tests
 {
@@ -27,9 +28,12 @@ namespace PerformanceTests.Tests
         public void Start()
         {
             var startTime = DateTime.Now;
-            var doc = Process.Start(_path);
+            var ap = new Application();
+            Document doc = ap.Documents.Open(_path);
+            doc.Activate();
             result = DateTime.Now - startTime;
-            doc.Kill();
+            ap.Documents.Close();
+            ap.Quit();
         }
 
         public void Dispose()

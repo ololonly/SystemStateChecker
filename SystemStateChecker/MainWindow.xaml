@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SystemStateChecker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="504" Width="610">
+        Title="System State Checker" Height="504" Width="610">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="64*"/>
