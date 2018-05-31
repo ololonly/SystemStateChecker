@@ -14,11 +14,19 @@ namespace PerformanceTests.Tests
         private const string download_path_less = @"http://styashov.ru/download/1.exe";
         private const string fileName = "testFile";
 
+        public int Percent { get; private set; }
+
         public async void Start()
         {
-            var file = new WebClient();
-            file.DownloadFile(download_path_less,fileName);
             
+            Uri path = new Uri(download_path_less);
+            var client = new WebClient();
+            client.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, args) =>
+            {
+                Percent = args.ProgressPercentage;
+            });
+            client.DownloadFileAsync(path,fileName);
+
         }
 
     }
