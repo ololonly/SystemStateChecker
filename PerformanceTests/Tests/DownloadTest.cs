@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PerformanceTests.Tests
 {
@@ -14,6 +9,7 @@ namespace PerformanceTests.Tests
         private const string download_path_less = @"http://styashov.ru/download/1.exe";
         private const string fileName = "testFile";
 
+        public WebClient DownloadClient { get; private set; }
         public int Percent { get; private set; }
 
         public async void Start()
@@ -21,10 +17,7 @@ namespace PerformanceTests.Tests
             
             Uri path = new Uri(download_path_less);
             var client = new WebClient();
-            client.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, args) =>
-            {
-                Percent = args.ProgressPercentage;
-            });
+            DownloadClient = client;
             client.DownloadFileAsync(path,fileName);
 
         }
