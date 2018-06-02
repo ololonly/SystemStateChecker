@@ -4,27 +4,17 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
-using SystemStateChecker.Tests;
+using PerformanceTests.Tests;
 
 namespace PerformanceTests
 {
     public static class TestsResult
     {
-        private static SortedList<double,string> copyTestList = new SortedList<double, string>();
+        public static SortedList<double, string> CopyTestList { get; set; } = new SortedList<double, string>();
 
-        public static SortedList<double, string> CopyTestList
-        {
-            get => copyTestList;
-            set => copyTestList = value;
-        }
+        public static SortedList<double, string> OpenDocTestList { get; set; } = new SortedList<double, string>();
 
-        private static SortedList<double, string> openDocTestList = new SortedList<double, string>();
-
-        public static SortedList<double, string> OpenDocTestList
-        {
-            get => openDocTestList;
-            set => openDocTestList = value;
-        }
+        public static SortedList<double, string> DownloadTestList { get; set; } = new SortedList<double, string>();
 
         static TestsResult()
         {

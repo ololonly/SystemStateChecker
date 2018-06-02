@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Management;
 
-namespace SystemStateChecker.Tests
+namespace PerformanceTests.Tests
 {
     public class AntivirusTest
     {
