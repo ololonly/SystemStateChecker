@@ -1,10 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
 using System.IO;
 using System.Net;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using PerformanceTests.Annotations;
 
 namespace PerformanceTests.Tests
 {
@@ -22,7 +18,7 @@ namespace PerformanceTests.Tests
         public void Start()
         {   
             if (File.Exists(fileName)) File.Delete(fileName);
-            Uri path = new Uri(download_path);
+            Uri path = new Uri(download_path_less);
             var startTime = DateTime.Now;
             DownloadClient.DownloadFileAsync(path, fileName);
             result = DateTime.Now - startTime;

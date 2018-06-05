@@ -22,7 +22,7 @@ namespace SystemStateChecker.Tests
             }
             catch
             {
-                return "Error";
+                return "Проверка соединения: Отсутствует";
             }
             State=state.ToString().Equals("Success")?true:false;
             return $"Проверка соединения: {state.ToString()}";

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Management;
-using System.Threading;
 using System.Windows;
 using Microsoft.Win32;
 using PerformanceTests;
